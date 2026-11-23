@@ -1,0 +1,86 @@
+:root {
+  --bg: #0d0f12;
+  --panel: rgba(18, 22, 28, 0.72);
+  --text: #e8ecf1;
+  --muted: #9aa5b1;
+  --accent: #7cc4ff;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+#view {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  outline: none;
+}
+#loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  background: var(--bg);
+  transition: opacity 0.5s;
+}
+#loading.done {
+  opacity: 0;
+  pointer-events: none;
+}
+#loading .label {
+  color: var(--muted);
+  text-align: center;
+}
+#loading .bar {
+  width: min(320px, 70vw);
+  height: 4px;
+  border-radius: 2px;
+  background: #222831;
+  overflow: hidden;
+}
+#fill {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.15s;
+}
+#hud {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+#hud button {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+#hud button:hover {
+  border-color: var(--accent);
+}
+#help {
+  position: fixed;
+  left: 16px;
+  bottom: 64px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  color: var(--muted);
+}
+#help b {
+  color: var(--text);
+}
